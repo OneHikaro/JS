@@ -72,3 +72,59 @@ while (n>0){
   n--
 }
 console.log(result)
+
+// Практика 4.1 Написать функцию, которая принимает 2 числа и возвращает меньшее из них.
+function getMin(a:number, b:number){  
+  return (a < b ? a : b)
+}
+console.log (getMin(5,8))
+
+// Практика 4.2 Написать функцию, которая возводит переданное число в указанную степень.
+function getDegree(a:number, b:number){  
+  let result = 1
+  for (let i = 0; i < b; i++){
+    result*=a
+  }
+  return result
+}
+console.log (getDegree (2,4))
+
+// Практика 4.3 Написать функцию, которая принимает 2 числа и знак (+ - * /), считает пример и возвращает результат.
+function getResult (a:number, b:number, c:string){
+  let result
+  switch (c) {
+    case '+':
+      result=a+b      
+      break;
+
+    case '-':
+      result=a-b      
+      break;
+
+    case '*':
+      result=a*b      
+      break;
+
+    case '/':
+      result=a/b      
+      break;
+  
+    
+  }
+  return result
+}
+
+console.log (getResult(4,2,'/'))
+
+// Практика 4.4 Написать функцию, которая проверяет, является ли переданное ей число простым.
+function checkNumber (a:number){
+  let result = ' '
+  if ((a % 1 && a % a) == 0){
+    result = 'Вы ввели простое число'
+  }
+  else {
+    result = 'Вы ввели сложное число'
+  }
+  return result
+}
+console.log (checkNumber (6))
