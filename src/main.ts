@@ -128,3 +128,59 @@ function checkNumber (a:number){
   return result
 }
 console.log (checkNumber (6))
+
+// Практика 5.1 Написать функцию, которая вычисляет факториал заданного числа.
+function getFactorial(n:number):number {
+  if (n==1) {
+    return n
+  } else {
+    return n * getFactorial(n-1)
+  }
+}
+console.log(getFactorial(6))
+
+// Практика 5.2 Написать функцию, которая выводит все числа из заданного пользователем диапазона в прямом порядке. И еще одну функцию – для вывода в обратном порядке.
+function parsNumberForvard(a:number, b:number):void{
+  let min = a
+  let max = b
+  min < max ? (a = min, b = max) : (a = max, b = min)
+  if(a==b){
+    return 
+  } else {
+    
+    parsNumberForvard(a + 1, b)    
+    console.log(a)
+  }
+}
+(parsNumberForvard(1,4))
+
+
+// Практика 5.3 Написать функцию, которая выводит переданное ей число задом наперед. Например: число 1234 вывести как 4321
+function getReversNumber(n:number):number {
+  if (n<10) {
+    return n
+  } else {
+    return +(n % 10 + '' + getReversNumber(Math.floor(n/10)))
+  }
+}
+console.log(getReversNumber(1234))
+
+// Практика 5.4 Написать функцию, которая считает сумму цифр числа. Например: число 1357, сумма 1 + 3 + 5 + 7 = 16
+function getSomeOfDigits(n:number):number {
+  if (n < 10) {
+    return n
+  } else {
+    return n % 10 + getSomeOfDigits(Math.floor(n/10))
+  }
+}
+console.log (getSomeOfDigits(1357))
+
+// Практика 5.5 Написать функцию, которая принимает число и выводит соответствующее количество вложенных пар круглых скобок. Например: число 4 – (((()))).
+function getBracetsPairsByNum(n:number):string {
+  if (!n) {
+    return ''
+  } else {
+    return '(' + getBracetsPairsByNum(n-1) + ')'
+  }
+}
+console.log(getBracetsPairsByNum(4))
