@@ -145,14 +145,13 @@ function parsNumberForvard(a:number, b:number):void{
   let max = b
   min < max ? (a = min, b = max) : (a = max, b = min)
   if(a==b){
-    return 
-  } else {
-    
+    return
+  } else {    
     parsNumberForvard(a + 1, b)    
     console.log(a)
   }
 }
-(parsNumberForvard(1,4))
+parsNumberForvard(1,8)
 
 
 // Практика 5.3 Написать функцию, которая выводит переданное ей число задом наперед. Например: число 1234 вывести как 4321
