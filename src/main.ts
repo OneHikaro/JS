@@ -183,3 +183,72 @@ function getBracetsPairsByNum(n:number):string {
   }
 }
 console.log(getBracetsPairsByNum(4))
+
+// Создать объект, описывающий прямоугольник (хранит координаты левой верхней и правой нижней точек),
+//  и написать следующие функции для работы с таким объектом.
+type Dot = {
+  x: number,
+  y: number,
+}
+type Rectangle = {
+  leftTop: Dot,
+  rightBottom: Dot,
+}
+const rectangle: Rectangle = {
+  leftTop: {
+    x: 30,
+    y: 10,
+  } as Dot,
+  rightBottom: {
+    x: 10,
+    y: 60,
+  } as Dot,
+}
+
+// 1. Функция принимает объект-прямоугольник и выводит информацию о нем (где какая точка расположена).
+function informAboutRectangle (rect: Rectangle){
+  console.log('Левая верхняя точка', 'x', rect.leftTop.x, 'y', rect.leftTop.y)
+  console.log('Правая верхняя точка', 'x', rect.leftTop.x, 'y', rect.rightBottom.y)
+  console.log('Левая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.x)
+  console.log('Правая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.y)
+}
+informAboutRectangle(rectangle)
+
+// 2. Функция принимает объект-прямоугольник и возвращает его ширину.
+function wightOfRectangle (rect: Rectangle){
+  return rect.rightBottom.y - rect.leftTop.x
+}
+console.log('Ширина прямоугольника', wightOfRectangle(rectangle))
+
+
+// 3. Функция принимает объект-прямоугольник и возвращает его высоту.
+function heightOfRectangle (rect: Rectangle){  
+  return rect.leftTop.x - rect.leftTop.y
+}
+console.log('Высота прямоугольника', heightOfRectangle(rectangle))
+
+
+// 4. Функция принимает объект-прямоугольник и возвращает его площадь.
+function areaOfRectangle (rect: Rectangle){  
+  return (rect.rightBottom.y - rect.leftTop.x) * (rect.leftTop.x - rect.leftTop.y)
+}
+console.log('Площадь прямоугольника', areaOfRectangle(rectangle))
+
+
+// 5. Функция принимает объект-прямоугольник и возвращает го периметр.
+
+// 6. Функция изменения ширины прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить ширину.
+
+// 7. Функция изменения высоты прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить высоту.
+
+// 8. Функция изменения ширины и высоты прямоугольника. Она принимает объект-прямоугольник и два значения –
+// для изменения ширины и высоты.
+
+// 9. Функция смещения прямоугольника по оси X. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
+
+// 10. Функция смещения прямоугольника по оси Y. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
+
+// 11. Функция смещения прямоугольника и по оси X и по оси Y. Она принимает объект-прямоугольник и два значения:
+// сдвиг по оси X и сдвиг по оси Y.
+
+// 12. Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и координаты точки.
