@@ -120,10 +120,10 @@ console.log (getResult(4,2,'/'))
 function checkNumber (a:number){
   let result = ' '
   if ((a % 1 && a % a) == 0){
-    result = 'Вы ввели простое число'
+    result = 'Вы ввели сложное число'
   }
   else {
-    result = 'Вы ввели сложное число'
+    result = 'Вы ввели простое число'
   }
   return result
 }
@@ -184,8 +184,9 @@ function getBracetsPairsByNum(n:number):string {
 }
 console.log(getBracetsPairsByNum(4))
 
+// ПРАВКТИКА ОБЪЕКТЫ
+
 // Создать объект, описывающий прямоугольник (хранит координаты левой верхней и правой нижней точек),
-//  и написать следующие функции для работы с таким объектом.
 type Dot = {
   x: number,
   y: number,
@@ -196,7 +197,7 @@ type Rectangle = {
 }
 const rectangle: Rectangle = {
   leftTop: {
-    x: 30,
+    x: 40,
     y: 10,
   } as Dot,
   rightBottom: {
@@ -205,7 +206,8 @@ const rectangle: Rectangle = {
   } as Dot,
 }
 
-// 1. Функция принимает объект-прямоугольник и выводит информацию о нем (где какая точка расположена).
+//  и написать следующие функции для работы с таким объектом.
+// 1. Функция принимает объект-прямоугольник и выводит информацию о нем (где какая точка расположена):
 function informAboutRectangle (rect: Rectangle){
   console.log('Левая верхняя точка', 'x', rect.leftTop.x, 'y', rect.leftTop.y)
   console.log('Правая верхняя точка', 'x', rect.leftTop.x, 'y', rect.rightBottom.y)
@@ -214,41 +216,156 @@ function informAboutRectangle (rect: Rectangle){
 }
 informAboutRectangle(rectangle)
 
-// 2. Функция принимает объект-прямоугольник и возвращает его ширину.
+// 2. Функция принимает объект-прямоугольник и возвращает его ширину:
 function wightOfRectangle (rect: Rectangle){
   return rect.rightBottom.y - rect.leftTop.x
 }
 console.log('Ширина прямоугольника', wightOfRectangle(rectangle))
 
 
-// 3. Функция принимает объект-прямоугольник и возвращает его высоту.
+// 3. Функция принимает объект-прямоугольник и возвращает его высоту:
 function heightOfRectangle (rect: Rectangle){  
   return rect.leftTop.x - rect.leftTop.y
 }
 console.log('Высота прямоугольника', heightOfRectangle(rectangle))
 
 
-// 4. Функция принимает объект-прямоугольник и возвращает его площадь.
+// 4. Функция принимает объект-прямоугольник и возвращает его площадь:
 function areaOfRectangle (rect: Rectangle){  
   return (rect.rightBottom.y - rect.leftTop.x) * (rect.leftTop.x - rect.leftTop.y)
 }
 console.log('Площадь прямоугольника', areaOfRectangle(rectangle))
 
 
-// 5. Функция принимает объект-прямоугольник и возвращает го периметр.
+// 5. Функция принимает объект-прямоугольник и возвращает его периметр:
+function perimeterOfRectangle (rect: Rectangle){
+  return (((rect.rightBottom.y - rect.leftTop.x)*2)+((rect.leftTop.x - rect.leftTop.y)*2))
+}
+console.log('Периметр прямоугольника', perimeterOfRectangle (rectangle))
 
-// 6. Функция изменения ширины прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить ширину.
+// 6. Функция изменения ширины прямоугольника. Она принимает объект-прямоугольник и на сколько
+// единиц изменить ширину:
+function changeWidthOfRectangle (rect: Rectangle, change: number): void{
+  rectangle.rightBottom.y += change
+  console.log('Левая верхняя точка', 'x', rect.leftTop.x, 'y', rect.leftTop.y)
+  console.log('Правая верхняя точка', 'x', rect.leftTop.x, 'y', rect.rightBottom.y)
+  console.log('Левая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.x)
+  console.log('Правая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.y)
+}
+changeWidthOfRectangle(rectangle, -10)
 
-// 7. Функция изменения высоты прямоугольника. Она принимает объект-прямоугольник и на сколько единиц изменить высоту.
 
-// 8. Функция изменения ширины и высоты прямоугольника. Она принимает объект-прямоугольник и два значения –
-// для изменения ширины и высоты.
+// 7. Функция изменения высоты прямоугольника. Она принимает объект-прямоугольник и на сколько
+// единиц изменить высоту:
+function changeHeightOfRectangle (rect: Rectangle, change: number): void{
+  rectangle.leftTop.x += change
+  console.log('Левая верхняя точка', 'x', rect.leftTop.x, 'y', rect.leftTop.y)
+  console.log('Правая верхняя точка', 'x', rect.leftTop.x, 'y', rect.rightBottom.y)
+  console.log('Левая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.x)
+  console.log('Правая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.y)
+}
+changeHeightOfRectangle(rectangle, -10)
 
-// 9. Функция смещения прямоугольника по оси X. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
+// 8. Функция изменения ширины и высоты прямоугольника. Она принимает объект-прямоугольник и два
+// значения для изменения ширины и высоты:
+function changeWidthAndHeightOfRectangle (rect: Rectangle, changeWidth: number, changeHeight: number): void{
+  rectangle.rightBottom.y += changeWidth  
+  rectangle.leftTop.x += changeHeight
+  console.log('Левая верхняя точка', 'x', rect.leftTop.x, 'y', rect.leftTop.y)
+  console.log('Правая верхняя точка', 'x', rect.leftTop.x, 'y', rect.rightBottom.y)
+  console.log('Левая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.x)
+  console.log('Правая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.y)
+}
+changeWidthAndHeightOfRectangle(rectangle, 10, 10)
 
-// 10. Функция смещения прямоугольника по оси Y. Она принимает объект-прямоугольник и на сколько единиц его сдвинуть.
+// 9. Функция смещения прямоугольника по оси X. Она принимает объект-прямоугольник и на сколько
+// единиц его сдвинуть:
+function shiftOfAxisX (rect: Rectangle, changeX: number): void{
+  rectangle.leftTop.x += changeX
+  rectangle.rightBottom.x += changeX  
+  console.log('Левая верхняя точка', 'x', rect.leftTop.x, 'y', rect.leftTop.y)
+  console.log('Правая верхняя точка', 'x', rect.leftTop.x, 'y', rect.rightBottom.y)
+  console.log('Левая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.x)
+  console.log('Правая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.y)
+}
+shiftOfAxisX(rectangle, -5)
 
-// 11. Функция смещения прямоугольника и по оси X и по оси Y. Она принимает объект-прямоугольник и два значения:
-// сдвиг по оси X и сдвиг по оси Y.
+// 10. Функция смещения прямоугольника по оси Y. Она принимает объект-прямоугольник и на сколько
+// единиц его сдвинуть:
+function shiftOfAxisY (rect: Rectangle, changeY: number): void{
+  rectangle.leftTop.y += changeY
+  rectangle.rightBottom.y += changeY  
+  console.log('Левая верхняя точка', 'x', rect.leftTop.x, 'y', rect.leftTop.y)
+  console.log('Правая верхняя точка', 'x', rect.leftTop.x, 'y', rect.rightBottom.y)
+  console.log('Левая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.x)
+  console.log('Правая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.y)
+}
+shiftOfAxisY(rectangle, -5)
 
-// 12. Функция для проверки, находится ли точка внутри прямоугольника. Она принимает объект-прямоугольник и координаты точки.
+// 11. Функция смещения прямоугольника и по оси X и по оси Y. Она принимает объект-прямоугольник
+// и два значения сдвиг по оси X и сдвиг по оси Y:
+function shiftOfAxisX_Y (rect: Rectangle, changeX: number, changeY: number): void{
+  rectangle.leftTop.x += changeX
+  rectangle.rightBottom.x += changeX  
+  rectangle.leftTop.y += changeY
+  rectangle.rightBottom.y += changeY
+  console.log('Левая верхняя точка', 'x', rect.leftTop.x, 'y', rect.leftTop.y)
+  console.log('Правая верхняя точка', 'x', rect.leftTop.x, 'y', rect.rightBottom.y)
+  console.log('Левая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.x)
+  console.log('Правая нижняя точка', 'x', rect.rightBottom.x, 'y', rect.rightBottom.y)
+}
+shiftOfAxisX_Y(rectangle, 5, 5)
+
+// 12. Функция для проверки, находится ли точка внутри прямоугольника. Она принимает
+// объект-прямоугольник и координаты точки:
+function checkOfPoint (rec: Rectangle, xPoint: number, yPoint: number): void{
+  if(xPoint < rec.leftTop.x && xPoint > rec.rightBottom.x && 
+      yPoint > rec.leftTop.y && yPoint < rec.rightBottom.y){
+        console.log('Точка находится внутри прямоугольника')
+      }
+  else{
+    console.log('Точка не находится внутри прямоугольника')
+    }
+}
+checkOfPoint (rectangle, 30, 60)
+
+
+// ДОМАШНЕЕ ЗАДАНИЕ ОБЪЕКТЫ
+
+// Задание 1
+// Создать объект, описывающий автомобиль (производитель, модель, год выпуска, средняя скорость),
+
+// и следующие функции для работы с этим объектом.
+// 1. Функция для вывода на экран информации об автомобиле.
+
+// 2. Функция для подсчета необходимого времени для преодоления переданного расстояния со средней скоростью.
+// Учтите, что через каждые 4 часа дороги водителю необходимо делать перерыв на 1 час.
+
+// Задание 2
+// Создать объект, хранящий в себе отдельно числитель и знаменатель дроби,
+
+// и следующие функции для работы с этим объектом.
+// 1. Функция сложения 2-х объектов-дробей.
+
+// 2. Функция вычитания 2-х объектов-дробей.
+
+// 3. Функция умножения 2-х объектов-дробей.
+
+// 4. Функция деления 2-х объектов-дробей.
+
+// 5. Функция сокращения объекта-дроби.
+
+// Задание 3
+// Создать объект, описывающий время (часы, минуты, секунды),
+
+// и следующие функции для работы с этим объектом.
+// 1. Функция вывода времени на экран.
+
+// 2. Функция изменения времени на переданное количество секунд.
+
+// 3. Функция изменения времени на переданное количество минут.
+
+// 4. Функция изменения времени на переданное количество часов.
+
+// Учтите, что в последних 3-х функциях, при изменении одной части времени, может измениться и другая.
+// Например: если ко времени «20:30:45» добавить 30 секунд, то должно получиться «20:31:15», а не «20:30:75».
