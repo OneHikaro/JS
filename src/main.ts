@@ -376,32 +376,56 @@ checkOfPoint (rectangle, 30, 60)
 
 // Задание 2
 // Создать массив, описывающий чек в магазине. Каждый элемент массива состоит из названия товара, количества и цены за
-// единицу товара. Написать следующие функции.
+// единицу товара.
 
+// type product = {
+//   name: string,
+//   quantiti: number,
+//   price: number,
+// }
+
+const check = [
+  {name: 'хлеб', quantiti: 1, price: 35},
+  {name: 'молоко', quantiti: 1, price: 125},
+  {name: 'шоколад', quantiti: 2, price: 80},
+  {name: 'кофе', quantiti: 1, price: 360},
+]
+
+// Написать следующие функции.
 // 1 Распечатка чека на экран.
 
+function printCheck (check: any) {
+  for (let product of check) {
+    console.log(product)
+  }
+  
+}
+printCheck (check)
+
 // 2 Подсчет общей суммы покупки.
+
+function sumOfCheck()
 
 // 3 Получение самой дорогой покупки в чеке.
 
 // 4 Подсчет средней стоимости одного товара в чеке.
 
-const styles = [
-  {color: 'red'},
-  {'font-size':'20px'},
-  {'text-align':'center'},
-]
+// const styles = [
+//   {color: 'red'},
+//   {'font-size':'20px'},
+//   {'text-align':'center'},
+// ]
 
-function renderText(styles:any[], text:string) {
-let styleText = ''
-for (let el of styles) {
-  for (let key in el) {
-    styleText += '${key}:${el[key]};'
-  }
-}
+// function renderText(styles:any[], text:string) {
+// let styleText = ''
+// for (let el of styles) {
+//   for (let key in el) {
+//     styleText += '${key}:${el[key]};'
+//   }
+// }
 
-const tagString = '<p style="${styleText}"'
-// document.body.insertAdjacentHTML('afterbegin')
-}
-renderText (styles, 'test1')
-console.log(renderText)
+// const tagString = '<p style="${styleText}"'
+// // document.body.insertAdjacentHTML('afterbegin')
+// }
+// renderText (styles, 'test1')
+// console.log(renderText)
