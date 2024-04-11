@@ -528,3 +528,25 @@ console.log(вернулаФункция)
 //      в div (3.8) выводить сумму зарплат
 //   }
 // })
+
+// Напишите функцию ucFirst(str), возвращающую строку str с заглавным первым символом.
+function ucFirst(str:string){
+  return str[0].toUpperCase()+str.slice(1)
+}
+
+console.log (ucFirst('олег'))
+
+// Напишите функцию checkSpam(str), возвращающую true, если str содержит 'viagra' или 'XXX', а иначе false.
+// Функция должна быть нечувствительна к регистру:
+
+function checkSpam(str: string){
+  const spam = ['viagra', 'xxx']
+
+  for (let sp of spam){
+    if (str.includes(sp)) return true
+  }
+  
+  return false
+}
+
+console.log(checkSpam('xxx'))
