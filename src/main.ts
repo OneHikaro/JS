@@ -623,6 +623,22 @@ console.log(spam('привет Только сегодня'))
 
 // 1 Написать функцию, которая принимает строку и выводит статистику о ней: количество букв,
 // количество цифр и количество других знаков.
+function infoAboutString (str: string){
+  let letters = ['ЁЙЦУКЕНГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮёйцукенгшщзхъфывапролджэячсмитьбюQWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm']
+  let letter = letters.join()
+  let numbers = ['0123456789']
+  let number = numbers.join()
+  let lett = 0
+  let num = 0
+  let other = 0
+  for (let one of str){
+    if (letter.includes(one)) {lett++}
+    if (number.includes(one)) {num++}
+    if (!letter.includes(one)&&!number.includes(one)) {other++}
+  }
+  console.log('букв: ', lett, 'цифр: ', num, 'других знаков: ', other)
+}infoAboutString('вакеjDГgtuy 234 &*')
+
 
 // 2 Написать функцию, которая принимает двузначное число и возвращает его в текстовом виде.
 // Например: 35 – тридцать пять, 89 – восемьдесят девять, 12 – двенадцать.
