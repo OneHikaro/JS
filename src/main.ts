@@ -668,3 +668,49 @@ function infoAboutString (str: string){
 // которого может использоваться %, после символа % указывается индекс входного параметра. При выводе вместо
 // %индекс необходимо вывести значение соответствующего входного параметра. Например: print(“Today is %1 %2.%3.%4”,
 // “Monday”, 10, 8, 2020) должна вывести “Today is Monday 10.8.2020”.
+
+
+// Реализовать класс, описывающий окружность. В классе должны быть следующие компоненты:
+// ■ поле, хранящее радиус окружности;
+// ■ get-свойство, возвращающее радиус окружности;
+// ■ set-свойство, устанавливающее радиус окружности;
+// ■ get-свойство, возвращающее диаметр окружности;
+// ■ метод, вычисляющий площадь окружности;
+// ■ метод, вычисляющий длину окружности.
+// Продемонстрировать работу свойств и методов.
+
+
+class Circle {
+  #radius: number
+  constructor(r: number){
+    this.#radius = r
+  }
+  get radius(){
+    return this.#radius
+  }
+  set radius(value:number){
+    this.#radius = value
+  }
+  get diameter() {
+    return 2*this.#radius
+  }
+  squareCircle() {
+    return 2*Math.PI*this.#radius**2
+  }
+  lengthsCircle() {
+    return 2*Math.PI*this.#radius
+  }
+
+}
+const c = new Circle(10)
+console.log(c.radius)
+console.log(c.diameter)
+console.log(c.squareCircle())
+console.log(c.lengthsCircle())
+c.radius = 15
+console.log(c.radius)
+console.log(c.diameter)
+console.log(c.squareCircle())
+console.log(c.lengthsCircle())
+
+
