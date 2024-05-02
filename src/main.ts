@@ -714,3 +714,37 @@ console.log(c.squareCircle())
 console.log(c.lengthsCircle())
 
 
+// Реализовать класс, который описывает css класс. Класс CssClass должен содержать внутри себя:
+// ■ название css класса;
+// ■ массив стилей;
+// ■ метод для установки стиля;
+// ■ метод для удаления стиля;
+// ■ метод getCss(), который возвращает css код в виде строки.
+
+
+
+// Создайте объект Date для даты: 20 февраля 2012 года, 3 часа 12 минут. Временная зона – местная.
+
+let date = new Date(2012,1,20,3,12)
+console.log(date.toString())
+console.log(date.toLocaleString())
+
+
+// Напишите функцию getWeekDay(date), показывающую день недели в коротком формате: «ПН», «ВТ», «СР», «ЧТ», «ПТ», «СБ», «ВС».
+
+function getWeekDay(d: Date){
+  const weekDay = ['ВС','ПН','ВТ','СР','ЧТ','ПТ','СБ']  
+  return weekDay[d.getDay()]
+}
+date = new Date(2024,4,2)
+console.log(getWeekDay(date))
+
+// В Европейских странах неделя начинается с понедельника (день номер 1), затем идёт вторник (номер 2) и так до воскресенья (номер 7).
+// Напишите функцию getLocalDay(date), которая возвращает «европейский» день недели для даты date.
+
+function getEuropWeekDay(d: Date){
+  return d.getDay()==0 ? 7 : d.getDay()
+}
+date = new Date(2012,0,3)
+console.log(getEuropWeekDay(date))
+
