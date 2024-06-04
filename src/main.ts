@@ -764,3 +764,18 @@ function getEuropWeekDay(d: Date){
 date = new Date(2012,0,3)
 console.log(getEuropWeekDay(date))
 
+type options = {
+  top?: number,
+  right?: number,
+  html?: '',
+  className?: '',
+}
+
+function showNotification (options: options){
+  if (!options.top) options.top = 10
+  if (!options.right) options.right= 20
+  if (!options.html) options.html = ''
+  if (!options.className) options.className = ''
+}
+
+showNotification ({})
