@@ -96,3 +96,7 @@ button:focus-visible {
 }
 
 
+.notification {
+  position: fixed;
+  z-index: 1;
+}
