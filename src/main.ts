@@ -764,6 +764,15 @@ function getEuropWeekDay(d: Date){
 date = new Date(2012,0,3)
 console.log(getEuropWeekDay(date))
 
+// Напишите функцию showNotification(options), которая создаёт уведомление: <div class="notification">
+// с заданным содержимым. Уведомление должно автоматически исчезнуть через 1,5 секунды.
+// проимер объекта options:
+// showNotification({
+//   top: 10, // 10px от верхней границы окна (по умолчанию 0px)
+//   right: 10, // 10px от правого края окна (по умолчанию 0px)
+//   html: "Hello!", // HTML-уведомление
+//   className: "welcome" // дополнительный класс для div (необязательно)
+// });
 type options = {
   top?: number,
   right?: number,
