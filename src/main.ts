@@ -808,3 +808,9 @@ container.addEventListener('click', function (event) {
 //  let elem = elem.querySelectorAll('.remove-button');
 //  if (!elem) return    
 })
+
+const contents = document.getElementById('contents')
+if (contents)
+contents.addEventListener('click', e =>{
+  if(contents.closest('href'))
+})
