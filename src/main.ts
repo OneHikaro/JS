@@ -792,3 +792,19 @@ showNotification ({})
 // Спрячте сообщения с помощью делигирования
 // Дан список сообщений с кнопками для удаления [x]. Заставьте кнопки работать.
 
+const container = document.getElementById('container')
+if (container)
+container.addEventListener('click', function (event) {
+  const target = event.target as HTMLElement
+  const el = target.closest('.remove-button')
+  if (el) {
+    el.parentElement?.remove()
+  }
+  if (target.tagName == 'H3') {
+    target.style.color = 'red'
+    const sibling = target!.nextElementSibling as HTMLElement
+    sibling.style.color = 'green'
+  }
+//  let elem = elem.querySelectorAll('.remove-button');
+//  if (!elem) return    
+})
