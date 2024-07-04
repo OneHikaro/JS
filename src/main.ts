@@ -809,8 +809,8 @@ container.addEventListener('click', function (event) {
 //  if (!elem) return    
 })
 
-const contents = document.getElementById('contents')
-if (contents)
-contents.addEventListener('click', e =>{
-  if(contents.closest('href'))
-})
+// const contents = document.getElementById('contents')
+// if (contents)
+// contents.addEventListener('click', e =>{
+//   if(contents.closest('href'))
+// })
